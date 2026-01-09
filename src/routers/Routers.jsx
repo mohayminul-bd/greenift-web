@@ -5,6 +5,8 @@ import Blogs from "../pages/Blogs";
 import Contact from "../pages/Contact";
 import ErrorPage from "../pages/ErrorPage";
 import Loader from "../components/Loader";
+import MyProduct from "../pages/MyProduct";
+import Shope from "../pages/Shope";
 
 const router = createBrowserRouter([
   {
@@ -17,11 +19,20 @@ const router = createBrowserRouter([
         element: <Home />,
         HydrateFallback: Loader,
       },
+      {
+        path: "/shop",
+        element: <Shope></Shope>,
+        HydrateFallback: Loader,
+      },
 
       {
         path: "/blog",
         element: <Blogs />,
         HydrateFallback: Loader,
+      },
+      {
+        path: "/my-booking",
+        element: <MyProduct></MyProduct>,
       },
       {
         path: "/contact",

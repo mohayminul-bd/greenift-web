@@ -1,20 +1,9 @@
-import React, { useRef, useEffect } from "react";
+import React, { useState } from "react";
+import { HiOutlineShoppingBag } from "react-icons/hi";
 import { NavLink, Link } from "react-router";
 
 const Navbar = () => {
-  const detailsRef = useRef(null);
-
-  // outside click handle
-  useEffect(() => {
-    const handleClickOutside = (e) => {
-      if (detailsRef.current && !detailsRef.current.contains(e.target)) {
-        detailsRef.current.open = false;
-      }
-    };
-
-    document.addEventListener("click", handleClickOutside);
-    return () => document.removeEventListener("click", handleClickOutside);
-  }, []);
+  const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
 
   const navLinks = (
     <>
@@ -24,22 +13,31 @@ const Navbar = () => {
           className={({ isActive }) =>
             isActive ? "text-primary font-semibold" : "font-medium"
           }
+          onClick={() => setMobileMenuOpen(false)}
         >
           Home
         </NavLink>
       </li>
-
-      {/* Products Dropdown */}
       <li>
-        <details ref={detailsRef}>
-          <summary className="font-medium cursor-pointer">Products</summary>
+        <NavLink
+          to="/shop"
+          className={({ isActive }) =>
+            isActive ? "text-primary font-semibold" : "font-medium"
+          }
+          onClick={() => setMobileMenuOpen(false)}
+        >
+          Shop
+        </NavLink>
+      </li>
 
-          <ul className="p-2 bg-base-100 rounded-box w-40">
-            <li onClick={() => (detailsRef.current.open = false)}>
+      <li>
+        <details>
+          <summary className="font-medium cursor-pointer">Categories</summary>
+          <ul className="p-2 bg-base-100 rounded-box w-40 mt-2">
+            <li onClick={() => setMobileMenuOpen(false)}>
               <NavLink to="/products/perfume">Perfume</NavLink>
             </li>
-
-            <li onClick={() => (detailsRef.current.open = false)}>
+            <li onClick={() => setMobileMenuOpen(false)}>
               <NavLink to="/products/attar">Attar</NavLink>
             </li>
           </ul>
@@ -52,6 +50,7 @@ const Navbar = () => {
           className={({ isActive }) =>
             isActive ? "text-primary font-semibold" : "font-medium"
           }
+          onClick={() => setMobileMenuOpen(false)}
         >
           About
         </NavLink>
@@ -63,6 +62,7 @@ const Navbar = () => {
           className={({ isActive }) =>
             isActive ? "text-primary font-semibold" : "font-medium"
           }
+          onClick={() => setMobileMenuOpen(false)}
         >
           Contact
         </NavLink>
@@ -71,29 +71,112 @@ const Navbar = () => {
   );
 
   return (
-    <div className="navbar bg-base-100 shadow-md px-4">
-      {/* Left */}
-      <div className="navbar-start">
-        <Link to="/" className="text-2xl font-bold text-primary">
-          Brand<span className="text-neutral">Name</span>
-        </Link>
+    <nav className=" shadow-md px-4 bg-green-400  ">
+      <div className="max-w-7xl mx-auto h-16 flex items-center justify-between">
+        {/* LEFT - Mobile Hamburger & Logo */}
+        <div className="flex items-center lg:hidden gap-4">
+          <button
+            className="btn btn-ghost"
+            onClick={() => setMobileMenuOpen(true)}
+          >
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              className="h-6 w-6"
+              fill="none"
+              viewBox="0 0 24 24"
+              stroke="currentColor"
+            >
+              <path
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                strokeWidth="2"
+                d="M4 6h16M4 12h16M4 18h16"
+              />
+            </svg>
+          </button>
+          <Link to="/" className="text-2xl font-bold text-black ">
+            Greenify
+          </Link>
+        </div>
+
+        {/* LEFT - Desktop Logo */}
+        <div className="hidden lg:flex">
+          <Link to="/" className="text-2xl font-bold text-black">
+            Greenify
+          </Link>
+        </div>
+
+        {/* CENTER - Menu (Desktop) */}
+        <div className="hidden lg:flex">
+          <ul className="menu menu-horizontal gap-6">{navLinks}</ul>
+        </div>
+
+        {/* RIGHT - Auth Buttons */}
+        <div className="flex gap-2">
+          <Link to="/my-booking" className="btn  text-2xl">
+            <HiOutlineShoppingBag />
+          </Link>
+          <Link to="/login" className="btn btn-outline btn-primary">
+            Login
+          </Link>
+        </div>
       </div>
 
-      {/* Center */}
-      <div className="navbar-center hidden lg:flex">
-        <ul className="menu menu-horizontal gap-4">{navLinks}</ul>
-      </div>
+      {/* Mobile Sidebar */}
+      {mobileMenuOpen && (
+        <div className="fixed inset-0 z-50 flex">
+          <div className="w-64 bg-base-100 h-full p-6 shadow-lg animate-slide-in">
+            <div className="flex justify-between items-center mb-6">
+              <Link to="/" className="text-2xl font-bold text-primary">
+                Greenify
+              </Link>
+              <button
+                className="btn btn-ghost"
+                onClick={() => setMobileMenuOpen(false)}
+              >
+                ✕
+              </button>
+            </div>
 
-      {/* Right */}
-      <div className="navbar-end">
-        <Link to="/login" className="btn btn-outline btn-primary mr-2">
-          Login
-        </Link>
-        <Link to="/register" className="btn btn-primary">
-          Get Started
-        </Link>
-      </div>
-    </div>
+            <ul className="menu flex flex-col gap-3">{navLinks}</ul>
+
+            <div className="flex flex-col gap-2 mt-6">
+              <Link
+                to="/my-booking"
+                className="btn btn-primary w-full"
+                onClick={() => setMobileMenuOpen(false)}
+              >
+                My Book
+              </Link>
+              <Link
+                to="/login"
+                className="btn btn-outline btn-primary w-full"
+                onClick={() => setMobileMenuOpen(false)}
+              >
+                Login
+              </Link>
+            </div>
+          </div>
+
+          <div
+            className="flex-1 bg-black bg-opacity-50"
+            onClick={() => setMobileMenuOpen(false)}
+          />
+        </div>
+      )}
+
+      <style>
+        {`
+          @keyframes slide-in {
+            from { transform: translateX(-100%); }
+            to { transform: translateX(0); }
+          }
+          .animate-slide-in {
+            animation: slide-in 0.3s ease-out forwards;
+          }
+        `}
+      </style>
+    </nav>
   );
 };
 
