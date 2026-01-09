@@ -1,6 +1,7 @@
 import React from "react";
 import image from "../assets/card/f8c1a514ee7de31c9e91d6714a9987e89ce78c63 (1).jpg";
 import { PiButterflyLight } from "react-icons/pi";
+import { NavLink } from "react-router";
 
 const Banner = () => {
   return (
@@ -32,9 +33,12 @@ const Banner = () => {
               Your Eco-Friendly Haven for Conscious Shopping."
             </p>
 
-            <button className="bg-green-600 hover:bg-green-700 text-white font-bold py-3 px-10 rounded-md shadow-lg transition duration-300 uppercase text-sm tracking-widest">
+            <NavLink
+              to="/shop"
+              className="bg-green-600 hover:bg-green-700 text-white font-bold cursor-pointer py-3 px-10 rounded-md shadow-lg transition duration-300 uppercase text-sm tracking-widest"
+            >
               Shop Now
-            </button>
+            </NavLink>
 
             {/* Small Butterfly Icon below button */}
             <div className="text-green-300 ml-20">

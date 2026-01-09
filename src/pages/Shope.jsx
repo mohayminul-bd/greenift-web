@@ -146,7 +146,7 @@ const Shope = () => {
 
               <button
                 onClick={() => setSelectedProduct(product)}
-                className="bg-green-500 hover:bg-green-600 text-white py-2 px-4 rounded w-1/2 text-xs uppercase"
+                className="bg-green-500 hover:bg-green-600 text-white py-2 px-4 cursor-pointer rounded w-1/2 text-xs uppercase"
               >
                 Buy Now
               </button>
@@ -159,7 +159,7 @@ const Shope = () => {
           <div className="text-center mt-16">
             <button
               onClick={() => setVisibleCount((p) => p + 3)}
-              className="bg-black text-white py-3 px-10 rounded uppercase text-sm tracking-widest"
+              className="bg-black cursor-pointer text-white py-3 px-10 rounded uppercase text-sm tracking-widest"
             >
               Explore More
             </button>
