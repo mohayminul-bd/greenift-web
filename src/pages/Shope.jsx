@@ -115,7 +115,7 @@ const Shope = () => {
     <section className="py-16 px-4 bg-white relative">
       <div className="container mx-auto max-w-6xl">
         <h2 className="text-3xl font-bold text-center mb-12">
-          Our Best-Selling Sustainable Products
+          Our Best all Products
         </h2>
 
         {/* Product Grid */}

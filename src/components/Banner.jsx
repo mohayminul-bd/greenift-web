@@ -35,11 +35,10 @@ const Banner = () => {
 
             <NavLink
               to="/shop"
-              className="bg-green-600 hover:bg-green-700 text-white font-bold cursor-pointer py-3 px-10 rounded-md shadow-lg transition duration-300 uppercase text-sm tracking-widest"
+              className="bg-green-600  hover:bg-green-700 text-white font-bold cursor-pointer py-3 px-10 rounded-md shadow-lg transition duration-300 uppercase text-sm tracking-widest"
             >
               Shop Now
             </NavLink>
-
             {/* Small Butterfly Icon below button */}
             <div className="text-green-300 ml-20">
               <PiButterflyLight className="text-8xl rotate-10" />

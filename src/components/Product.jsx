@@ -98,10 +98,8 @@ const Product = () => {
     );
 
     if (existingProduct) {
-      // same product hole quantity barabo
       existingProduct.qty += 1;
     } else {
-      // new product hole add করবো
       storedProducts.push({ ...selectedProduct, qty: 1 });
     }
 

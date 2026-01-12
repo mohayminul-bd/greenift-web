@@ -113,7 +113,10 @@ const Navbar = () => {
 
         {/* RIGHT - Auth Buttons */}
         <div className="flex gap-2">
-          <Link to="/my-booking" className="btn  text-2xl">
+          <Link
+            to="/my-booking"
+            className="btn  text-2xl border border-blue-600 hover:bg-blue-800 hover:text-white"
+          >
             <HiOutlineShoppingBag />
           </Link>
           <Link to="/login" className="btn btn-outline btn-primary">
@@ -143,10 +146,10 @@ const Navbar = () => {
             <div className="flex flex-col gap-2 mt-6">
               <Link
                 to="/my-booking"
-                className="btn btn-primary w-full"
+                className="btn border border-blue-600 hover:bg-blue-800 hover:text-white w-full"
                 onClick={() => setMobileMenuOpen(false)}
               >
-                My Book
+                <HiOutlineShoppingBag className="text-2xl " />
               </Link>
               <Link
                 to="/login"

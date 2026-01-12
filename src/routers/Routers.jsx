@@ -7,6 +7,7 @@ import ErrorPage from "../pages/ErrorPage";
 import Loader from "../components/Loader";
 import MyProduct from "../pages/MyProduct";
 import Shope from "../pages/Shope";
+import About from "../pages/About";
 
 const router = createBrowserRouter([
   {
@@ -37,6 +38,11 @@ const router = createBrowserRouter([
       {
         path: "/contact",
         element: <Contact />,
+        HydrateFallback: Loader,
+      },
+      {
+        path: "/about",
+        element: <About></About>,
         HydrateFallback: Loader,
       },
     ],

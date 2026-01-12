@@ -1,5 +1,6 @@
 import React from "react";
-import { GiGlobe, GiHandOk, GiStamper, GiCardboardBox } from "react-icons/gi";
+import { GiHandOk, GiStamper, GiCardboardBox } from "react-icons/gi";
+import { SlBadge } from "react-icons/sl";
 
 const WhyChooseUs = () => {
   const features = [
@@ -8,7 +9,7 @@ const WhyChooseUs = () => {
       title: "Sustainable Products",
       description:
         "Explore our carefully curated selection of sustainable products, each designed to reduce your carbon footprint.",
-      icon: <GiGlobe className="w-10 h-10 text-green-600" />,
+      icon: <GiStamper className="w-10 h-10 text-green-600" />,
     },
     {
       id: 2,
@@ -22,7 +23,7 @@ const WhyChooseUs = () => {
       title: "High-Quality Selection",
       description:
         "Invest in long-lasting and reliable products that meet our stringent quality standards, ensuring your satisfaction and the longevity of your purchases.",
-      icon: <GiStamper className="w-10 h-10 text-green-600" />,
+      icon: <SlBadge className="w-10 h-10 text-green-600" />,
     },
     {
       id: 4,

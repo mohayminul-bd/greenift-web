@@ -39,7 +39,7 @@ const Footer = () => {
               <img
                 src={sub}
                 alt="Eco Friendly Products"
-                className="w-full h-full object-cover"
+                className="w-full h-full object-cover "
               />
               {/* Overlay Gradient for Image */}
               <div className="absolute inset-0 bg-black/5 md:hidden"></div>

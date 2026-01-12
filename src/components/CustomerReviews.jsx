@@ -1,37 +1,40 @@
 import React, { useState } from "react";
 import { FaStar, FaArrowLeft, FaArrowRight } from "react-icons/fa";
 import { HiOutlineEmojiHappy } from "react-icons/hi";
+import image1 from "../assets/blog/review-1.png";
+import image2 from "../assets/blog/review-2.png";
+import image3 from "../assets/blog/review-3.png";
 
 const CustomerReviews = () => {
   const reviews = [
     {
       id: 1,
-      name: "Sarah Johnson",
-      image: "https://randomuser.me/api/portraits/women/44.jpg",
+      name: "Emily Lee",
+      image: image1,
       comment:
         "I absolutely love my Organic Cotton Tote Bag from Greenify! It's not only stylish but also eco-friendly. Highly recommend this sustainable accessory!",
       rating: 5,
     },
     {
       id: 2,
-      name: "Mark Anderson",
-      image: "https://randomuser.me/api/portraits/men/32.jpg",
+      name: "Sarah Johnson",
+      image: image2,
       comment:
         "The Bamboo Toothbrushes from Greenify are a game-changer! The quality is outstanding, and I love the fact that they are made from renewable bamboo.",
       rating: 5,
     },
     {
       id: 3,
-      name: "Emily Lee",
-      image: "https://randomuser.me/api/portraits/women/68.jpg",
+      name: "Mark Anderson",
+      image: image3,
       comment:
         "I recently bought the Hemp Backpack from Greenify, and I must say it's a fantastic investment. Thumbs up for the eco-conscious design!",
       rating: 5,
     },
     {
       id: 4,
-      name: "John Doe",
-      image: "https://randomuser.me/api/portraits/men/45.jpg",
+      name: "Mark Anderson",
+      image: image3,
       comment:
         "Great experience shopping here. The packaging was plastic-free and the delivery was very fast. Will buy again!",
       rating: 4,
@@ -106,7 +109,7 @@ const CustomerReviews = () => {
                     </div>
                   </div>
 
-                  <h3 className="text-xl font-bold text-gray-800 mb-4">
+                  <h3 className="text-xl font-bold mt-2 text-gray-800 mb-4">
                     {review.name}
                   </h3>
                   <p className="text-gray-600 text-sm leading-relaxed mb-6 italic">
