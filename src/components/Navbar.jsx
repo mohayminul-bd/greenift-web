@@ -143,23 +143,6 @@ const Navbar = () => {
             </div>
 
             <ul className="menu flex flex-col gap-3">{navLinks}</ul>
-
-            <div className="flex flex-col gap-2 mt-6">
-              <Link
-                to="/my-booking"
-                className="btn border border-blue-600 hover:bg-blue-800 hover:text-white w-full"
-                onClick={() => setMobileMenuOpen(false)}
-              >
-                <HiOutlineShoppingBag className="text-2xl " />
-              </Link>
-              <Link
-                to="/login"
-                className="btn btn-outline btn-primary w-full"
-                onClick={() => setMobileMenuOpen(false)}
-              >
-                <img src={user} alt="" />
-              </Link>
-            </div>
           </div>
 
           <div
