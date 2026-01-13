@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { HiOutlineShoppingBag } from "react-icons/hi";
 import { NavLink, Link } from "react-router";
+import user from "../assets/blog/user.png";
 
 const Navbar = () => {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
@@ -71,7 +72,7 @@ const Navbar = () => {
   );
 
   return (
-    <nav className=" shadow-md px-4 bg-green-400  ">
+    <nav className=" shadow-md px-4 md:px-12 bg-green-400  ">
       <div className="max-w-7xl mx-auto h-16 flex items-center justify-between">
         {/* LEFT - Mobile Hamburger & Logo */}
         <div className="flex items-center lg:hidden gap-4">
@@ -115,12 +116,12 @@ const Navbar = () => {
         <div className="flex gap-2">
           <Link
             to="/my-booking"
-            className="btn  text-2xl border border-blue-600 hover:bg-blue-800 hover:text-white"
+            className="  text-3xl p-1 rounded-full hover:bg-blue-800  hover:text-white"
           >
             <HiOutlineShoppingBag />
           </Link>
-          <Link to="/login" className="btn btn-outline btn-primary">
-            Login
+          <Link to="/login" className="rounded-full">
+            <img className="w-9  rounded-full " src={user} alt="" />
           </Link>
         </div>
       </div>
@@ -156,7 +157,7 @@ const Navbar = () => {
                 className="btn btn-outline btn-primary w-full"
                 onClick={() => setMobileMenuOpen(false)}
               >
-                Login
+                <img src={user} alt="" />
               </Link>
             </div>
           </div>
